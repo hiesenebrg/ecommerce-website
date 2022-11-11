@@ -1,8 +1,9 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { LineStyle, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -60,7 +61,7 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-weight:10px;
+  font-weight: 10px;
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
@@ -82,11 +83,15 @@ const Navbar = () => {
           <Logo>FASHIONMAINA.</Logo>
         </Center>
         <Right>
-          <MenuItem style = {{fontWeight:'bold'}}>REGISTER </MenuItem>
-          <MenuItem style = {{fontWeight:'bold'}}>SIGN IN</MenuItem>
+          <MenuItem style={{ fontWeight: "bold" }}>
+            <Link to="/register" style={{textDecoration:"none"}}>REGISTER
+            </Link>
+            </MenuItem>
+          <MenuItem style={{ fontWeight: "bold" }}><Link to="/login" style={{textDecoration:"none"}} >SIGN IN
+            </Link></MenuItem>
           <MenuItem>
             <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
+              <Link to="/cart" style={{textDecoration:"none"}}><ShoppingCartOutlined /></Link>
             </Badge>
           </MenuItem>
         </Right>
